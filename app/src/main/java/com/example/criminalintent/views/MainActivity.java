@@ -1,4 +1,4 @@
-package com.example.criminalintent.activities;
+package com.example.criminalintent.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.criminalintent.fragments.CrimeListFragment;
+import com.example.criminalintent.views.CrimeListFragment;
 import com.example.criminalintent.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

@@ -33,6 +33,7 @@ android {
 dependencies {
 
     def lifecycle_version = "2.5.0-beta01"
+    def room_version = "2.4.2"
 
     // ViewModel
     //noinspection GradleDependency
@@ -40,6 +41,13 @@ dependencies {
 
     // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.2.1"
+
+    // Room dependencies
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // Rxjava
+    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
 
 
     implementation 'androidx.appcompat:appcompat:1.4.1'

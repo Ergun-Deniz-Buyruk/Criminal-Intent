@@ -1,4 +1,4 @@
-package com.example.criminalintent.fragments;
+package com.example.criminalintent.views;
 
 import android.os.Bundle;
 
@@ -38,7 +38,7 @@ public class CrimeListFragment extends Fragment {
         binding = FragmentCrimeListBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         binding.crimeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        CrimeAdapter crimeAdapter = new CrimeAdapter(Arrays.asList(crimeListViewModel.crimes));
+        CrimeAdapter crimeAdapter = new CrimeAdapter(crimeListViewModel.crimes);
         binding.crimeRecyclerView.setAdapter(crimeAdapter);
         return view;
     }

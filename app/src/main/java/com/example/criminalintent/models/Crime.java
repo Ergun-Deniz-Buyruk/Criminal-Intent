@@ -1,12 +1,24 @@
 package com.example.criminalintent.models;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Date;
 import java.util.UUID;
 
+@Entity
 public class Crime {
+    @PrimaryKey
+    @NonNull
     private UUID id;
+
+    @ColumnInfo(name = "title")
     private String title;
+    @ColumnInfo(name = "date")
     private Date date;
+    @ColumnInfo(name = "isSolved")
     private boolean isSolved;
 
     public Crime(UUID id, String title, Date date, boolean isSolved) {

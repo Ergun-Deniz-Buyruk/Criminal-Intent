@@ -1,4 +1,4 @@
-package com.example.criminalintent.fragments;
+package com.example.criminalintent.views;
 
 import android.os.Bundle;
 

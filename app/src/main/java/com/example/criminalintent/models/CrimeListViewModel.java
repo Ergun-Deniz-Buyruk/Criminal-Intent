@@ -1,5 +1,6 @@
 package com.example.criminalintent.models;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.criminalintent.models.Crime;
@@ -11,11 +12,11 @@ import java.util.UUID;
 
 public class CrimeListViewModel extends ViewModel {
 
-    public List<Crime> crimes;
+    public LiveData<List<Crime>> crimeListLiveData;
 
     public CrimeListViewModel() {
         CrimeRepository crimeRepository = CrimeRepository.getCrimeRepository(null);
-        crimes = crimeRepository.getCrimes();
+        crimeListLiveData = crimeRepository.getCrimes();
         /*
         for (int i = 0; i< crimes.length; i++) {
             Crime crime = new Crime(

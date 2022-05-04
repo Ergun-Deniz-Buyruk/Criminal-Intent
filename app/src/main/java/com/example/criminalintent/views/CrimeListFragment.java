@@ -11,16 +11,21 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.criminalintent.R;
 import com.example.criminalintent.adapter.CrimeAdapter;
 import com.example.criminalintent.models.Crime;
 import com.example.criminalintent.models.CrimeListViewModel;
 import com.example.criminalintent.databinding.FragmentCrimeListBinding;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -44,6 +49,23 @@ public class CrimeListFragment extends Fragment {
         callbacks = null;
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_crime_list, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(R.id.new_crime == item.getItemId()) {
+            Crime newCrime = new Crime(UUID.randomUUID(), "", new Date(), false);
+            crimeListViewModel.addCrime(newCrime);
+            callbacks.onCrimeSelected(newCrime.getId());
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private FragmentCrimeListBinding binding;
     private CrimeListViewModel crimeListViewModel;
     private CrimeAdapter crimeAdapter;
@@ -55,6 +77,7 @@ public class CrimeListFragment extends Fragment {
         crimeListViewModel =
                 new ViewModelProvider(this).get(CrimeListViewModel.class);
 
+        setHasOptionsMenu(true);
     }
 
     @Override

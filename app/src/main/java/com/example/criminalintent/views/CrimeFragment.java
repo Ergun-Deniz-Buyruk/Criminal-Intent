@@ -29,7 +29,7 @@ public class CrimeFragment extends Fragment implements DatePickerFragment.Callba
     public static final String DIALOG_DATE = "dialog_date";
     private static final int REQUEST_DATE = 0;
     private FragmentCrimeBinding binding;//ViewBinding
-    private CrimeDetailViewModel CrimeDetailViewModel;//Crime LiveData
+    private CrimeDetailViewModel CrimeDetailViewModel;//Crime ViewModel
     private Crime crime;
     private UUID crimeId;
 
@@ -99,12 +99,14 @@ public class CrimeFragment extends Fragment implements DatePickerFragment.Callba
     @Override
     public void onStop() {
         super.onStop();
+        crime.setTitle(binding.crimeTitle.getText().toString());
+        crime.setSolved(binding.crimeSolved.isChecked());
         CrimeDetailViewModel.saveCrime(crime);
     }
 
     @Override
     public void onDateSelected(Date date) {
         crime.setDate(date);
-        updateUI();
+        binding.crimeDate.setText(date.toString());
     }
 }

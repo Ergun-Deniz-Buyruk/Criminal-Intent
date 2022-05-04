@@ -34,6 +34,7 @@ dependencies {
 
     def lifecycle_version = "2.5.0-beta01"
     def room_version = "2.4.2"
+    def appcompat_version = "1.4.1"
 
     // ViewModel
     //noinspection GradleDependency
@@ -48,6 +49,9 @@ dependencies {
 
     // Rxjava
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
+
+    // App Combat dependencies
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
 
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
